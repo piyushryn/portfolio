@@ -50,14 +50,42 @@ yarn dev
 
 ### Content Configuration
 
-All content on the website can be easily customized by editing the configuration file at `src/config/portfolioConfig.ts`. This includes:
+The portfolio content is managed through a JSON configuration file located at `public/portfolioConfig.json`. This approach allows for easy content updates without touching the codebase. The configuration includes:
 
-- Personal information
-- Experience history
-- Skills
-- Projects
-- Social links
-- SEO metadata
+- Personal information (name, title, location, intro, etc.)
+- Experience history (positions, companies, descriptions)
+- Skills (categorized technical skills)
+- Projects (descriptions, technologies, links)
+- Social links (GitHub, LinkedIn, email, etc.)
+- SEO metadata (title, description, keywords)
+
+To modify the content:
+1. Edit the `public/portfolioConfig.json` file
+2. The changes will be automatically reflected in the website
+3. No code changes required for content updates
+
+Example configuration structure:
+```json
+{
+  "personalInfo": {
+    "name": "Your Name",
+    "title": "Your Title",
+    "location": "Your Location",
+    "intro": "Your introduction",
+    "jobStatus": "Current job status",
+    "resumeUrl": "URL to your resume",
+    "calendarUrl": "URL to your calendar"
+  },
+  "socialLinks": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/yourusername",
+      "icon": "github"
+    }
+  ]
+  // ... other sections
+}
+```
 
 ### Styling
 

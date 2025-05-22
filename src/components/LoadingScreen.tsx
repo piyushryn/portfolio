@@ -33,7 +33,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading }) => {
     }, 5000);
 
     return () => clearInterval(jokeInterval);
-  }, [jokes.length]);
+  }, []);
 
   return (
     <AnimatePresence>
