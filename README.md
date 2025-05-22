@@ -64,6 +64,15 @@ To modify the content:
 2. The changes will be automatically reflected in the website
 3. No code changes required for content updates
 
+You can also customize the location of the configuration file by setting the `CONFIG_URL` environment variable during build:
+
+```bash
+# Use a custom configuration file URL
+CONFIG_URL=https://example.com/my-config.json npm run build
+```
+
+If not specified, it will use the default `/portfolioConfig.json` path.
+
 Example configuration structure:
 ```json
 {

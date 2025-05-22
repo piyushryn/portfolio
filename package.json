@@ -23,6 +23,7 @@
     "typed.js": "^2.0.16"
   },
   "devDependencies": {
+    "@types/node": "^22.15.21",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@types/react-helmet": "^6.1.9",

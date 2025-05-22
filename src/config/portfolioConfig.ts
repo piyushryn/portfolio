@@ -57,7 +57,9 @@ export interface PortfolioConfig {
 }
 
 // Config URL can be modified to point to a different JSON file
-export const configURL = "/portfolioConfig.json";
+// Uses CONFIG_URL environment variable if provided,
+// otherwise falls back to default "/portfolioConfig.json"
+export const configURL = process.env.CONFIG_URL || "/portfolioConfig.json";
 
 // Function to fetch portfolio config
 export const fetchPortfolioConfig = async (): Promise<PortfolioConfig> => {
