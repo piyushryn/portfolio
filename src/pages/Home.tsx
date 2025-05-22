@@ -7,49 +7,59 @@ import Projects from "../components/sections/Projects";
 import Skills from "../components/sections/Skills";
 import Contact from "../components/sections/Contact";
 import Layout from "../components/layout/Layout";
-import portfolioConfig from "../config/portfolioConfig";
+import LoadingScreen from "../components/LoadingScreen";
+import { usePortfolio } from "../context/PortfolioContext";
 
 const Home = () => {
+  const { portfolioData, isLoading } = usePortfolio();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  return (
-    <Layout>
-      <Helmet>
-        <title>{portfolioConfig.seo.title}</title>
-        <meta name="description" content={portfolioConfig.seo.description} />
-        <meta
-          name="keywords"
-          content={portfolioConfig.seo.keywords.join(", ")}
-        />
-        <meta property="og:title" content={portfolioConfig.seo.title} />
-        <meta
-          property="og:description"
-          content={portfolioConfig.seo.description}
-        />
-        {portfolioConfig.seo.ogImage && (
-          <meta property="og:image" content={portfolioConfig.seo.ogImage} />
-        )}
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={portfolioConfig.seo.title} />
-        <meta
-          name="twitter:description"
-          content={portfolioConfig.seo.description}
-        />
-        {portfolioConfig.seo.ogImage && (
-          <meta name="twitter:image" content={portfolioConfig.seo.ogImage} />
-        )}
-      </Helmet>
+  if (isLoading || !portfolioData) {
+    return <LoadingScreen isLoading={true} />;
+  }
 
-      <Hero />
-      <About />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Contact />
-    </Layout>
+  return (
+    <>
+      <LoadingScreen isLoading={isLoading} />
+      <Layout portfolioConfig={portfolioData}>
+        <Helmet>
+          <title>{portfolioData.seo.title}</title>
+          <meta name="description" content={portfolioData.seo.description} />
+          <meta
+            name="keywords"
+            content={portfolioData.seo.keywords.join(", ")}
+          />
+          <meta property="og:title" content={portfolioData.seo.title} />
+          <meta
+            property="og:description"
+            content={portfolioData.seo.description}
+          />
+          {portfolioData.seo.ogImage && (
+            <meta property="og:image" content={portfolioData.seo.ogImage} />
+          )}
+          <meta property="og:type" content="website" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content={portfolioData.seo.title} />
+          <meta
+            name="twitter:description"
+            content={portfolioData.seo.description}
+          />
+          {portfolioData.seo.ogImage && (
+            <meta name="twitter:image" content={portfolioData.seo.ogImage} />
+          )}
+        </Helmet>
+
+        <Hero portfolioConfig={portfolioData} />
+        <About portfolioConfig={portfolioData} />
+        <Experience portfolioConfig={portfolioData} />
+        <Skills portfolioConfig={portfolioData} />
+        <Projects portfolioConfig={portfolioData} />
+        <Contact portfolioConfig={portfolioData} />
+      </Layout>
+    </>
   );
 };
 

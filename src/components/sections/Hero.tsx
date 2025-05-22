@@ -3,10 +3,14 @@ import { motion } from "framer-motion";
 import Typed from "typed.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFile, faCalendar } from "@fortawesome/free-solid-svg-icons";
-import portfolioConfig from "../../config/portfolioConfig";
+import { PortfolioConfig } from "../../config/portfolioConfig";
 import "./Hero.scss";
 
-const Hero = () => {
+interface HeroProps {
+  portfolioConfig: PortfolioConfig;
+}
+
+const Hero: React.FC<HeroProps> = ({ portfolioConfig }) => {
   const typedElement = useRef<HTMLSpanElement>(null);
   const typed = useRef<Typed | null>(null);
 
@@ -29,7 +33,7 @@ const Hero = () => {
     return () => {
       typed.current?.destroy();
     };
-  }, []);
+  }, [portfolioConfig]);
 
   return (
     <section id="home" className="hero">

@@ -4,10 +4,10 @@ import { useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faExternalLink } from "@fortawesome/free-solid-svg-icons";
-import portfolioConfig from "../../config/portfolioConfig";
+import { SectionProps } from "../../types/common";
 import "./Projects.scss";
 
-const Projects = () => {
+const Projects: React.FC<SectionProps> = ({ portfolioConfig }) => {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 

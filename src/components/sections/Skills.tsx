@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import portfolioConfig from "../../config/portfolioConfig";
+import { SectionProps } from "../../types/common";
 import "./Skills.scss";
 
-const Skills = () => {
+const Skills: React.FC<SectionProps> = ({ portfolioConfig }) => {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 

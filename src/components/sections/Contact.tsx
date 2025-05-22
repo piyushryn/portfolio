@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import portfolioConfig from "../../config/portfolioConfig";
+import { SectionProps } from "../../types/common";
 import "./Contact.scss";
 
-const Contact = () => {
+const Contact: React.FC<SectionProps> = ({ portfolioConfig }) => {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 

@@ -1,9 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import portfolioConfig from "../../config/portfolioConfig";
 import { motion } from "framer-motion";
+import { PortfolioConfig } from "../../config/portfolioConfig";
 import "./Footer.scss";
 
-const Footer = () => {
+interface FooterProps {
+  portfolioConfig: PortfolioConfig;
+}
+
+const Footer: React.FC<FooterProps> = ({ portfolioConfig }) => {
   const currentYear = new Date().getFullYear();
 
   // Helper function to determine if icon is from brand or solid icons
