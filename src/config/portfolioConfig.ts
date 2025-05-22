@@ -1,0 +1,262 @@
+import { IconName } from "@fortawesome/fontawesome-svg-core";
+
+export interface PersonalInfo {
+  name: string;
+  title: string;
+  location: string;
+  age?: number;
+  pronouns?: string;
+  intro: string;
+  jobStatus: string;
+  avatarUrl?: string;
+  resumeUrl: string;
+  calendarUrl?: string;
+}
+
+export interface Experience {
+  position: string;
+  company: string;
+  period: string;
+  description: string[];
+  technologies?: string[];
+}
+
+export interface Skill {
+  category: string;
+  items: string[];
+}
+
+export interface Project {
+  name: string;
+  description: string[];
+  technologies: string[];
+  liveUrl?: string;
+  repoUrl?: string;
+  image?: string;
+  isLive?: boolean;
+}
+
+export interface SocialLink {
+  name: string;
+  url: string;
+  icon: IconName;
+}
+
+export interface PortfolioConfig {
+  personalInfo: PersonalInfo;
+  experiences: Experience[];
+  skills: Skill[];
+  projects: Project[];
+  socialLinks: SocialLink[];
+  seo: {
+    title: string;
+    description: string;
+    keywords: string[];
+    ogImage?: string;
+  };
+}
+
+const portfolioConfig: PortfolioConfig = {
+  personalInfo: {
+    name: "Piyush Aryan",
+    title: "Full Stack Developer",
+    location: "Bengaluru, India",
+    intro:
+      "Full stack developer with a strong foundation in MERN stack and fintech product development. Currently expanding skills in Go. Experienced in building scalable systems and integrating services in high-impact, compliant environments.",
+    jobStatus:
+      "Currently working as an SDE-2 at smallcase Technologies. Open to exciting roles that allow me to architect robust systems while collaborating across stacks.",
+    resumeUrl: "/Piyush Aryan FE.pdf",
+    calendarUrl: "https://cal.com/piyusharyan/",
+    pronouns: "he/him",
+  },
+  experiences: [
+    {
+      position: "Software Development Engineer - 2",
+      company: "smallcase Technologies Pvt Ltd",
+      period: "Oct 2024 – Present",
+      description: [
+        "Owner of multiple frontend repositories in the Gateway team, supporting Securities and smallcase distribution for partners.",
+        "Led US Equity transaction onboarding, including digilocker KYC integration and on-the-go bank account opening.",
+        "Developed loan opt-in flow for Mutual Funds using Next.js, Zustand, and REST APIs, integrated reCAPTCHA.",
+        "Worked on Gin Gonic (Go) for backend feature additions.",
+        "Enhanced Gateway SDK and CI processes, and optimized browser feature compatibility (iFrame vs new tab fallback).",
+        "Successfully delivered projects involving US-based ETF bucket transactions in a regulated fintech environment.",
+      ],
+      technologies: [
+        "Preact",
+        "Next.js",
+        "React",
+        "Zustand",
+        "Redux",
+        "TypeScript",
+        "Gin Gonic (Go)",
+        "Express.js",
+        "REST APIs",
+        "Webpack",
+        "oEmbed",
+      ],
+    },
+    {
+      position: "Software Development Engineer - 1",
+      company: "smallcase Technologies Pvt Ltd",
+      period: "Aug 2022 – Sep 2024",
+      description: [
+        "Improved company CI workflow and internal SDKs for external partners.",
+        "Developed onboarding and loan disbursement flows for mutual fund holdings.",
+        "Worked across frontend libraries and backend services, with focus on maintainability and quality.",
+        "Built foundational understanding of fintech infrastructure and industry standards.",
+      ],
+      technologies: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Gin Gonic (Go)",
+        "Node.js",
+        "Express.js",
+        "CI/CD",
+      ],
+    },
+  ],
+  skills: [
+    {
+      category: "Frontend",
+      items: [
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Next.js",
+        "Preact",
+        "Zustand",
+        "Redux",
+        "HTML5",
+        "CSS3",
+        "TailwindCSS",
+        "Material UI",
+      ],
+    },
+    {
+      category: "Backend",
+      items: [
+        "Node.js",
+        "Express.js",
+        "Go",
+        "Gin Gonic",
+        "MongoDB",
+        "SQL",
+        "REST APIs",
+        "GraphQL",
+      ],
+    },
+    {
+      category: "Tools & Practices",
+      items: [
+        "Git",
+        "Webpack",
+        "Vite",
+        "GitHub Actions",
+        "Jest",
+        "CI/CD",
+        "Docker",
+        "Agile/Scrum",
+      ],
+    },
+  ],
+  projects: [
+    {
+      name: "Client and Employee Onboarding System",
+      description: [
+        "Spearheaded development for a robust React-based onboarding tool for clients and employees.",
+      ],
+      technologies: ["React"],
+    },
+    {
+      name: "Acharya Connect",
+      description: [
+        "Developed a MERN-stack LinkedIn-style web app to foster collaboration among tech professionals.",
+        "Integrated voice navigation to enhance accessibility and user interaction.",
+      ],
+      technologies: ["MongoDB", "Express.js", "React", "Node.js"],
+    },
+    {
+      name: "OP_Invoicer",
+      description: [
+        "Built full-stack invoice generation tool using Next.js and Node.js.",
+        "Included PDF export, user auth, and dynamic templates with Firebase integration.",
+      ],
+      technologies: ["React", "Node.js", "Firebase", "PDF.js", "TailwindCSS"],
+      repoUrl: "https://github.com/piyushdps/OP_Invoicer",
+      liveUrl: "https://op-invoicer.web.app",
+      isLive: false,
+    },
+    {
+      name: "autoAlive",
+      description: [
+        "Created a WebRTC-based monitoring and attendance platform for BigBlueButton.",
+        "Customized version for Acharya Alive platform with real-time metrics and dashboard.",
+      ],
+      technologies: ["React", "Node.js", "WebSockets", "WebRTC", "D3.js"],
+      repoUrl: "https://github.com/piyushdps/autoAlive",
+      liveUrl: "https://autoalive.vercel.app",
+      isLive: false,
+    },
+    {
+      name: "Habba21",
+      description: [
+        "Built event management platform for college fest volunteer registration and coordination.",
+        "Enabled live PDF generation, email notifications, and authentication flows.",
+      ],
+      technologies: [
+        "Next.js",
+        "Express.js",
+        "MongoDB",
+        "Bootstrap",
+        "JWT Auth",
+      ],
+      repoUrl: "https://github.com/piyushdps/Habba21-apl-and-volunteer",
+    },
+  ],
+  socialLinks: [
+    {
+      name: "GitHub 1",
+      url: "https://github.com/piyushdps",
+      icon: "github",
+    },
+    {
+      name: "LinkedIn",
+      url: "https://linkedin.com/in/aryanpiyush",
+      icon: "linkedin",
+    },
+    {
+      name: "Email",
+      url: "mailto:piyusharyanofficial@gmail.com",
+      icon: "envelope",
+    },
+    {
+      name: "Schedule a meeting",
+      url: "https://cal.com/piyusharyan/",
+      icon: "calendar",
+    },
+    {
+      name: "GitHub 2",
+      url: "https://github.com/piyushryn",
+      icon: "github",
+    },
+  ],
+  seo: {
+    title: "Piyush Aryan | Full Stack Developer",
+    description:
+      "Piyush Aryan is a full stack developer specializing in React, Next.js, and backend systems. Focused on scalable architecture, fintech products, and delivering production-grade code.",
+    keywords: [
+      "Piyush Aryan",
+      "full stack developer",
+      "React developer",
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "Go",
+      "fintech engineer",
+    ],
+  },
+};
+
+export default portfolioConfig;
