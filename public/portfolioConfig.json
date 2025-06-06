@@ -136,7 +136,6 @@
       ],
       "technologies": ["React", "Node.js", "WebSockets", "WebRTC", "D3.js"],
       "repoUrl": "https://github.com/piyushdps/autoAlive",
-      "liveUrl": "https://autoalive.vercel.app",
       "isLive": false
     },
     {
